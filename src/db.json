@@ -1,0 +1,38 @@
+
+{"cats": [
+    {
+       "id": 1,
+       "name": "Stubbs",
+       "skill-set": "napping",
+       "hobby": "eating treats",
+       "img": "https://plus.unsplash.com/premium_photo-1674316194408-979a3a6a907a?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+       "price": 50
+    },
+
+    {
+        "id": 2,
+        "name": "Sparkle",
+        "skill-set": "3am ballard",
+        "hobby": "judging you",
+        "img": "https://media.istockphoto.com/id/1464715470/photo/staring-cat.jpg?s=612x612&w=is&k=20&c=6a7tiHuAhCXD2U7umoYUzmMkBZB0_7MakSQn2nEgQxA=",
+        "price": 200
+     },
+
+     {
+        "id": 3,
+        "name": "Alpha",
+        "skill-set": "hunting",
+        "hobby": "killing small prey",
+        "img": "https://images.unsplash.com/photo-1614992605446-375b99e9ef75?q=80&w=723&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        "price": 75
+     },
+
+     {
+        "id": 4,
+        "name": "Gorgie",
+        "skill-set": "making biscuits",
+        "hobby": "being the best",
+        "img": "https://images.unsplash.com/photo-1615000363959-e52262d2c75b?q=80&w=735&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        "price": 130
+     }
+]}

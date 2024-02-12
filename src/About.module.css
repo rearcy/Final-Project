@@ -1,0 +1,25 @@
+* {
+    background-color: beige;
+    color: black;
+}
+
+.parent {
+    display: flex;
+}
+.header {
+ text-align: center;
+}
+
+.text {
+   justify-content: left;
+ text-align: left;
+ margin: 5px;
+}
+
+.img {
+    justify-content: right;
+ width: 50%;
+ height: 50%;
+ margin: 5px;
+
+}
