@@ -12,7 +12,7 @@ import { ProductContext } from "./ProductContext";
 function Products({cats}) {
 
 let navigate = useNavigate()
-let params = useParams() 
+let {catId} = useParams() 
 
 let { getCat, deleteCat} = useContext(ProductContext)
 let [cat, setCat] = useState([])
@@ -24,10 +24,10 @@ if (!cats) console.log("not working");
 
  useEffect(() => {
     async function fetch() {
-      await getCat(params.catId).then((cat) => setCat(cat))
+      await getCat(catId).then((cat) => setCat(cat))
     }
    fetch()
-  }, [params.catId])
+  }, [catId])
 
 
     function handleDelete(id) {
