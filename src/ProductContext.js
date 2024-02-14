@@ -8,11 +8,8 @@ export const ProductProvider = (props) => {
 let params = useParams();  
 
     useEffect(() => {
-        async function getCats() {
-            await refreshCats()
-        }
-        getCat()
-    }, [])
+        refreshCats()
+        }, [])
     
         function refreshCats() {
           return axios.get("http://localhost:3001/cats")
@@ -21,22 +18,10 @@ let params = useParams();
           })
         }
 
-        function getCats() {
-            return axios.get("http://localhost:3001/cats").then 
-            (response =>{ setCats(); 
-                return new Promise (resolve => resolve(response.data));
-              })
-            
-            
-        }
     function getCat(id) {
         return cats.find(c => c.id ===id);
-         
-
         }
-    
-     
-    
+
         function newCat(cat) {
            return axios.post("http://localhost:3001/cats", cat).then
            (response => {
@@ -59,7 +44,7 @@ let params = useParams();
     }
           
         return (
-            <ProductContext.Provider value={{cats, refreshCats, getCats, getCat, newCat, updateCat, deleteCat}}>
+            <ProductContext.Provider value={{cats, refreshCats, getCat, newCat, updateCat, deleteCat}}>
                 {props.children}
             </ProductContext.Provider>
         )
