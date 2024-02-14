@@ -11,7 +11,7 @@ function Cat() {
     let id = parseInt(params.catId);
 
     return (
-        <ProductContext>
+        <ProductContext.Consumer>
             {
                 function ({getCat}) {
                     let cat = getCat(id);
@@ -38,7 +38,7 @@ function Cat() {
                     )
                 }
             }
-        </ProductContext>
+        </ProductContext.Consumer>
     )
 }
 

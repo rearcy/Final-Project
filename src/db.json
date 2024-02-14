@@ -47,7 +47,15 @@
       "hobby": "not caring",
       "img": "https://images.unsplash.com/photo-1526459329141-dc905db63046?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
       "price": 85
+    },
+    {
+      "id": "7fdb",
+      "name": "Wob",
+      "hobby": "hunting",
+      "skill": "sneak attacks",
+      "img": "https://media.istockphoto.com/id/1498838344/photo/grumpy-persian-waiting-on-food.jpg?s=612x612&w=is&k=20&c=wBhnYj2WH9CKyrawGtgq1O_JGTfDcRVrnEPZyFqIhvw=",
+      "price": "140",
+      "": "k"
     }
-  
   ]
-} 
+}

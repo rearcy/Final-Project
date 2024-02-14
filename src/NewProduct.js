@@ -13,7 +13,7 @@ function NewProduct() {
     img: "",
     price: ""
 })
-
+let {name, hobby, skill, price, img} = newcat
   let {newCat } = useContext(ProductContext)
   let navigate = useNavigate();
 
@@ -25,36 +25,36 @@ function NewProduct() {
 
     function handleSubmit(event) {
      event.preventDefault();
-      newCat(newcat).then(() => {
+      newCat(newcat).then((newcat) => {
         navigate('/Products');
       })
         
     }
   return (
-    <Form onClick={handleSubmit}>
-      <Form.Group className="mb-3" controlId="formName" onChange={handleChange}>
+    <Form onSubmit={handleSubmit}>
+      <Form.Group className="mb-3">
         <Form.Label>Name</Form.Label>
-        <Form.Control type="text" placeholder="Enter name" />
+        <Form.Control type="text" name="name" value={name} placeholder="Enter name" onChange={handleChange}/>
       </Form.Group>
 
-      <Form.Group className="mb-3" controlId="formHobby" onChange={handleChange}>
+      <Form.Group className="mb-3" >
         <Form.Label>Hobby</Form.Label>
-        <Form.Control type="text" placeholder="Kitties fav hobby" />
+        <Form.Control type="text" name="hobby" value={hobby} placeholder="Kitties fav hobby" onChange={handleChange}/>
       </Form.Group>
 
-      <Form.Group className="mb-3" controlId="formSkill" onChange={handleChange}>
+      <Form.Group className="mb-3" >
         <Form.Label>Skill</Form.Label>
-        <Form.Control type="text" placeholder="Whats their skillset?" />
+        <Form.Control type="text" name="skill" value={skill} placeholder="Whats their skillset?" onChange={handleChange}/>
       </Form.Group>
 
-      <Form.Group className="mb-3" controlId="formPrice" onChange={handleChange}>
+      <Form.Group className="mb-3" >
         <Form.Label>Price</Form.Label>
-        <Form.Control type="text" placeholder="Price" />
+        <Form.Control type="text" name="price" value={price} placeholder="Price" onChange={handleChange}/>
       </Form.Group>
 
-      <Form.Group className="mb-3" controlId="formImg" onChange={handleChange}>
+      <Form.Group className="mb-3">
         <Form.Label>Image URL</Form.Label>
-        <Form.Control type="text" placeholder="Image URL" />
+        <Form.Control type="text" name="img" value={img} placeholder="Image URL" onChange={handleChange}/>
       </Form.Group>
      
       <Button variant="primary" type="submit">
