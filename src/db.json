@@ -34,5 +34,24 @@
         "hobby": "being the best",
         "img": "https://images.unsplash.com/photo-1615000363959-e52262d2c75b?q=80&w=735&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
         "price": 130
+     },
+     {
+
+      "id": 5,
+      "name": "Greg",
+      "skill": "chasing the red glow",
+      "hobby": "reading your mind",
+      "img": "https://plus.unsplash.com/premium_photo-1677545183884-421157b2da02?q=80&w=1472&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "price": 110
+     },
+
+     {
+
+      "id": 6,
+      "name": "Steffon",
+      "skill": "tripping you",
+      "hobby": "not caring",
+      "img": "https://images.unsplash.com/photo-1526459329141-dc905db63046?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "price": 85
      }
 ]}
