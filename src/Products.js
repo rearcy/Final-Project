@@ -8,6 +8,7 @@ import styles from './Card.module.css';
 import { ProductContext } from "./ProductContext";
 import {Stack }from "react-bootstrap";
 import { Outlet } from "react-router-dom";
+import Display from "./HomeDisplay";
 
 function Products(props) {
 
@@ -18,27 +19,22 @@ function Products(props) {
     function handleDelete(id) {
       deleteCat(id)
       navigate('/cats')
-    }    
-
-    // function handleClick(cat) {
-    //   navigate(`/cats/${cat.id}/more`)
-    // }
+    }   
 
    
   const CatList = () => (
     <ProductContext.Consumer>
-
-         
+  
       {({cats}) => (
         
         <>
-         <Stack>
+        <Link className={styles.productLink} to='/create'>Add a new resident</Link>
+         <Stack className="align-self-end w-35">
             <Outlet/>
           </Stack>
-         <Link className={styles.productLink} to='/create'>Add a new resident</Link>
          <Row>
         <Col className="wrapper">
-        {cats.map(cat => ( <Card className={styles.card} key={cat.id} style={{ width: '18rem'}}>
+        {cats.map(cat => ( <Card className="align-self-start w-35" key={cat.id} style={{ width: '18rem'}}>
              <Card.Img variant="top" src={cat.img} />
              <Card.Body>
                <Card.Title><b>{cat.name}</b></Card.Title>
@@ -47,11 +43,11 @@ function Products(props) {
                  <br/>
                  Price: ${cat.price}
               </Card.Text>
-               <Link to={`/cats/${cat.id}/more`} variant="primary">See more</Link>
+               <Link to={`/cats/${cat.id}/more`} variant="primary" className="btn btn-primary mx-3">See more</Link>
                <br/>
                <Button variant='warning' onClick={handleDelete.bind(this, cat.id)}>Delete {cat.name}</Button> 
                 <br/>
-               <Link to={`/cats/${cat.id}/edit`}>Edit listing</Link>
+               <Link to={`/cats/${cat.id}/edit`} className="btn btn-primary mx-3">Edit listing</Link>
              </Card.Body>
           </Card>
           ))};

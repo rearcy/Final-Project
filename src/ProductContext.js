@@ -50,7 +50,7 @@ return axios.get(`http://localhost:3001/cats/${id}`)
         }
     
         function deleteCat(id) {
-           axios.delete(`http://localhost:3001/cats/${catId}`)
+           axios.delete(`http://localhost:3001/cats/${id}`)
           .then (refreshCats)
           .catch(error => {
             console.error('Error deleting cat:', error);

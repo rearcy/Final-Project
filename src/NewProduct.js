@@ -15,7 +15,7 @@ let params = useParams()
     price: 0
 })
   let {newCat, getCat, updateCat, cats } = useContext(ProductContext)
-let {name, hobby, skill, price, img, id} = cats
+let {name, hobby, skill, price, img, id} = cat
 let navigate = useNavigate();
 
   useEffect(() => {
@@ -43,8 +43,8 @@ let navigate = useNavigate();
 
     function handleSubmit(event) {
      event.preventDefault()
-     addOrUpdate(). then((cat) => 
-     navigate(`/cats/${cat.id}`))
+     addOrUpdate() .then((cat) => 
+     navigate('/cats'))
         
     }
 
@@ -53,27 +53,27 @@ let navigate = useNavigate();
     <Form onSubmit={handleSubmit}>
       <Form.Group className="mb-3">
         <Form.Label>Name</Form.Label>
-        <Form.Control type="text" name="name" value={name} placeholder="Enter name" onChange={handleChange}/>
+        <Form.Control type="text" name="name" value={name}  onChange={handleChange}/>
       </Form.Group>
 
       <Form.Group className="mb-3" >
         <Form.Label>Hobby</Form.Label>
-        <Form.Control type="text" name="hobby" value={hobby} placeholder="Kitties fav hobby" onChange={handleChange}/>
+        <Form.Control type="text" name="hobby" value={hobby}  onChange={handleChange}/>
       </Form.Group>
 
       <Form.Group className="mb-3" >
         <Form.Label>Skill</Form.Label>
-        <Form.Control type="text" name="skill" value={skill} placeholder="Whats their skillset?" onChange={handleChange}/>
+        <Form.Control type="text" name="skill" value={skill}  onChange={handleChange}/>
       </Form.Group>
 
       <Form.Group className="mb-3" >
         <Form.Label>Price</Form.Label>
-        <Form.Control type="text" name="price" value={price} placeholder="Price" onChange={handleChange}/>
+        <Form.Control type="text" name="price" value={price}  onChange={handleChange}/>
       </Form.Group>
 
       <Form.Group className="mb-3">
         <Form.Label>Image URL</Form.Label>
-        <Form.Control type="text" name="img" value={img} placeholder="Image URL" onChange={handleChange}/>
+        <Form.Control type="text" name="img" value={img}  onChange={handleChange}/>
       </Form.Group>
      
       <Button variant="primary" type="submit">

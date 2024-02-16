@@ -33,7 +33,7 @@ return (
          <Card.Text>
           Hobby: {cat.hobby} 
          </Card.Text>
-         <Link to={`/cats/${cat.id}/more`} variant="primary">See more</Link>
+         <Link to={`/cats/${cat.id}/more`} variant="primary" className="btn btn-primary mx-3">See more</Link>
        </Card.Body>
      </Card> 
      </div>
