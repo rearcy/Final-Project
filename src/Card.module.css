@@ -7,10 +7,17 @@
   
   .card {
     align-items: stretch;
+    text-align: center;
     padding: 15px;
     width: 30%;
   }
 
   .productLink {
     text-align: center;
+  }
+
+  .filter {
+    text-align: right;
+    border: solid black;
+    margin: 10px;
   }

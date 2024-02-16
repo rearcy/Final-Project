@@ -6,52 +6,63 @@ import { Col } from "react-bootstrap";
 import{ Row }from "react-bootstrap";
 import styles from './Card.module.css';
 import { ProductContext } from "./ProductContext";
+import {Stack }from "react-bootstrap";
+import { Outlet } from "react-router-dom";
 
-function Products() {
+function Products(props) {
 
   let navigate = useNavigate()
   let {deleteCat} =useContext(ProductContext)
+ 
 
     function handleDelete(id) {
       deleteCat(id)
-      navigate('/Adoptees')
+      navigate('/cats')
     }    
 
-    function handleDetail(id) {
-      navigate('/moreInfo')
-    }
+    // function handleClick(cat) {
+    //   navigate(`/cats/${cat.id}/more`)
+    // }
 
    
   const CatList = () => (
     <ProductContext.Consumer>
+
+         
       {({cats}) => (
+        
         <>
+         <Stack>
+            <Outlet/>
+          </Stack>
          <Link className={styles.productLink} to='/create'>Add a new resident</Link>
          <Row>
         <Col className="wrapper">
         {cats.map(cat => ( <Card className={styles.card} key={cat.id} style={{ width: '18rem'}}>
              <Card.Img variant="top" src={cat.img} />
              <Card.Body>
-               <Card.Title>{cat.name}</Card.Title>
+               <Card.Title><b>{cat.name}</b></Card.Title>
                <Card.Text>
-                Hobby: {cat.hobby} 
+               <b>Hobby:</b>  {cat.hobby} 
                  <br/>
-                 Price: {cat.price}
+                 Price: ${cat.price}
               </Card.Text>
-               <Button  onClick={handleDetail} variant="primary">See more</Button>
-               <Button variant='warning' onClick={handleDelete.bind(this, cat.id)}>Delete {cat.name}</Button>               <br/>
-               <Link to='/edit'>Edit listing</Link>
+               <Link to={`/cats/${cat.id}/more`} variant="primary">See more</Link>
+               <br/>
+               <Button variant='warning' onClick={handleDelete.bind(this, cat.id)}>Delete {cat.name}</Button> 
+                <br/>
+               <Link to={`/cats/${cat.id}/edit`}>Edit listing</Link>
              </Card.Body>
           </Card>
           ))};
           </Col>
-          </Row>         
+          </Row>  
             </> 
       ) } 
     </ProductContext.Consumer>
-  );
-
-  return <CatList/>
+  ); 
+  return CatList()
+   
  }
 
 export default Products

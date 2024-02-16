@@ -5,7 +5,11 @@ import { useParams } from "react-router-dom";
 export const ProductContext = React.createContext()
 export const ProductProvider = (props) => {
     const [cats, setCats] = useState([])
+
+ 
 let params = useParams();  
+let catId = parseInt(params.catId)
+
 
     useEffect(() => {
         refreshCats()
@@ -18,9 +22,15 @@ let params = useParams();
           })
         }
 
-    function getCat(id) {
-        return cats.find(c => c.id ===id);
+ function getCat(id) {
+return axios.get(`http://localhost:3001/cats/${id}`)
+ .then(response => 
+    new Promise ((resolve) => resolve(response.data)))
+  .catch((error) =>
+        new Promise((_, reject) => reject(error.response.statusText))
+      )
         }
+//  return cats.find(cat => cat.id === parseInt(id))
 
         function newCat(cat) {
            return axios.post("http://localhost:3001/cats", cat).then
@@ -31,12 +41,16 @@ let params = useParams();
          
         }
     
-        function updateCat(id) {
-    
+        function updateCat(cat) {
+    return axios.put(`http://localhost:3001/cats/${cat.id}`, cat)
+    .then (response => {
+        refreshCats()
+        return new Promise((resolve) => resolve(response.data))
+    })
         }
     
         function deleteCat(id) {
-           axios.delete(`http://localhost:3001/cats/${id}`)
+           axios.delete(`http://localhost:3001/cats/${catId}`)
           .then (refreshCats)
           .catch(error => {
             console.error('Error deleting cat:', error);

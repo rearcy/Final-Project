@@ -1,35 +1,54 @@
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
-import React, { useContext, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { ProductContext } from './ProductContext';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 
 function NewProduct() {
-
-  let [newcat, setNewCat] = useState({
+let params = useParams()
+  let [cat, setCat] = useState({
+    id: params.catId,
     name: "",
     hobby:"",
     skill: "",
     img: "",
-    price: ""
+    price: 0
 })
-let {name, hobby, skill, price, img} = newcat
-  let {newCat } = useContext(ProductContext)
-  let navigate = useNavigate();
+  let {newCat, getCat, updateCat, cats } = useContext(ProductContext)
+let {name, hobby, skill, price, img, id} = cats
+let navigate = useNavigate();
+
+  useEffect(() => {
+    if (id === undefined) return 
+    async function fetch() {
+      await getCat(id) 
+      .then((cat) => setCat(cat))
+    }
+    fetch()
+  }, [id])
 
   function handleChange(event) {
-    setNewCat((preValue) => {
+    setCat((preValue) => {
       return {...preValue, [event.target.name]: event.target.value}
     });
   }
 
+  function addOrUpdate() {
+    if (id === undefined) {
+      return newCat(cat)
+    } else {
+      return updateCat(cat)
+    }
+  }
+
     function handleSubmit(event) {
-     event.preventDefault();
-      newCat(newcat).then((newcat) => {
-        navigate('/Products');
-      })
+     event.preventDefault()
+     addOrUpdate(). then((cat) => 
+     navigate(`/cats/${cat.id}`))
         
     }
+
+
   return (
     <Form onSubmit={handleSubmit}>
       <Form.Group className="mb-3">

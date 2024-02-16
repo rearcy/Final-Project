@@ -2,8 +2,11 @@ import React from 'react';
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card'; 
 import styles from './Home.module.css'
+import { useNavigate, Link } from 'react-router-dom';
 
 function Display({cats}) {
+let navigate = useNavigate()
+
     if (!cats) console.log("not working");
   
     let catsToDisplay = [];
@@ -13,6 +16,10 @@ function Display({cats}) {
     } else {
        catsToDisplay = cats;}    
    
+// function handleClick(id) {
+//   navigate('cats/:catId')
+// }
+
 return (
     <>
      <h2>Welcome, come take a look at our cool cats and kittens, up for adoption!</h2>
@@ -26,7 +33,7 @@ return (
          <Card.Text>
           Hobby: {cat.hobby} 
          </Card.Text>
-         <Button variant="primary">See more</Button>
+         <Link to={`/cats/${cat.id}/more`} variant="primary">See more</Link>
        </Card.Body>
      </Card> 
      </div>

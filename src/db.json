@@ -1,7 +1,7 @@
 {
   "cats": [
     {
-      "id": "1",
+      "id": 1,
       "name": "Stubbs",
       "skill": "napping",
       "hobby": "eating treats",
@@ -9,7 +9,7 @@
       "price": 50
     },
     {
-      "id": "2",
+      "id": 2,
       "name": "Sparkle",
       "skill": "3am ballard",
       "hobby": "judging you",
@@ -17,7 +17,7 @@
       "price": 200
     },
     {
-      "id": "3",
+      "id": 3,
       "name": "Alpha",
       "skill": "hunting",
       "hobby": "killing small prey",
@@ -25,15 +25,15 @@
       "price": 75
     },
     {
-      "id": "4",
+      "id": 4,
       "name": "Gorgie",
       "skill": "making biscuits",
       "hobby": "being the best",
       "img": "https://images.unsplash.com/photo-1615000363959-e52262d2c75b?q=80&w=735&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-      "price": 130
+      "price":130
     },
     {
-      "id": "5",
+      "id": 5,
       "name": "Greg",
       "skill": "chasing the red glow",
       "hobby": "reading your mind",
@@ -41,7 +41,7 @@
       "price": 110
     },
     {
-      "id": "6",
+      "id": 6,
       "name": "Steffon",
       "skill": "tripping you",
       "hobby": "not caring",
@@ -49,13 +49,29 @@
       "price": 85
     },
     {
-      "id": "7fdb",
+      "id": 7,
       "name": "Wob",
       "hobby": "hunting",
       "skill": "sneak attacks",
       "img": "https://media.istockphoto.com/id/1498838344/photo/grumpy-persian-waiting-on-food.jpg?s=612x612&w=is&k=20&c=wBhnYj2WH9CKyrawGtgq1O_JGTfDcRVrnEPZyFqIhvw=",
-      "price": "140",
-      "": "k"
+      "price": 140
+     
+    },
+    {
+      "id": 8,
+      "name": "Tom",
+      "hobby": "Skateboarding",
+      "skill": "long naps",
+      "img": "https://images.unsplash.com/photo-1543852786-1cf6624b9987?q=80&w=2187&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "price": 80
+    },
+    {
+      "id": 9,
+      "name": "Kilroy ",
+      "hobby": "Attacking Titans",
+      "skill": "fraud ",
+      "img": "https://images.unsplash.com/photo-1573865526739-10659fec78a5?q=80&w=1915&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "price": 250
     }
   ]
 }

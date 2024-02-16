@@ -8,6 +8,7 @@ import HomeDisplay from './HomeDisplay';
 import NewProduct from './NewProduct';
 import EachProduct from './EachProduct';
 
+
 function App() {
   return (
     <>
@@ -16,9 +17,11 @@ function App() {
       <Route path='/' element={<Home />} >
          <Route index element={<HomeDisplay cats={cats.cats} />}/>
          <Route path='/About' element={<About/>}/>
-         <Route path='/Adoptees' element={<Products cats={cats.cats}/>}/>
-          <Route path='/create' element={<NewProduct/>}/>
-          <Route path='/moreInfo' element={<EachProduct/>}/>
+         <Route path='/cats' element={<Products cats={cats.cats}/>}>
+         <Route path=":catId/edit" element={<NewProduct/>}/>
+          <Route path=":catId/more" element={<EachProduct/>}/>
+          </Route>
+          <Route path='/create' element={<NewProduct/>}/>  
       </Route>
       <Route path='*' element={"Page not found"}/>
     </Routes>
