@@ -2,42 +2,47 @@ import React, { useContext, useEffect, useState } from 'react';
 import axios from 'axios';
 import Button from 'react-bootstrap/Button';  
 import { Stack } from 'react-bootstrap';
-import { Outlet } from 'react-router-dom';
+import { Outlet, Link } from 'react-router-dom';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import {Container} from 'react-bootstrap';
 import styles from './Home.module.css';
 import { Form } from 'react-bootstrap';
+import ProductContext from './ProductContext';
+import {Card} from 'react-bootstrap';
+
 
 
 function Home() {
-  let [value, setValue] = useState([])
+  let [value, setValue] = useState("")
   let [data, setData] = useState([])
+  let {refreshCats} = useContext(ProductContext)
 
  useEffect(() => {
-  loadUserData();
+  refreshCats();
  }, [])
 
-  const loadUserData = async () => {
-    return await axios 
-    .get("http://localhost:3001/cats")
-    .then((response) => setData(response.data))
-    .catch((err) => console.log(err));
-  }
-  console.log("data:", data);
+//  const filtered = response.data.filter(cat => cat.name.toLowerCase().includes(value.toLowerCase().trim()));
 
   const handleSearch = async (event) => {
     event.preventDefault();
-    return await axios.get(`http://localhost:3001/cats?q=${value}`) 
-    .then((response ) => {
+    console.log(value)
+    try {
+       const response = await axios.get(`http://localhost:3001/cats/?name=${value}`) ;
+       console.log(response.data);
+      
       setData(response.data);
-      setValue("");
-    })
-    .catch((err) => console.log(err))
+    
+    }
+    catch(error){
+      console.error(error)
+    }  
   }
 
   const handleReset = () => {
-    loadUserData();
+    refreshCats();
+     setValue("");
+     setData([]);
   }
 
       return (
@@ -61,18 +66,39 @@ function Home() {
           <Form onSubmit={handleSearch} className="d-flex">
             <input
               type="text"
-              placeholder="Search name, hobby, skill"
+              placeholder="Search by name"
               className="form-control"
               value={value || ""}
               onChange={(event) => setValue(event.target.value)}
+            
             />
-            <Button type="submit" variant="outline-success">Search</Button>
+            <Button type="submit" variant="success">Search</Button>
             <Button variant="warning" onClick={handleReset} >Reset</Button>
           </Form>
         </Navbar.Collapse>
       </Container>
     </Navbar>
 
+<ul>
+  {data.map(cat => (
+    <Card className="self-align-end" style={{ width: '18rem' }}>
+                <Card.Img variant="top" src={cat.img} />
+                <Card.Body>
+                    <Card.Title><b>{cat.name}</b></Card.Title>
+                    <Card.Text>
+                   <b>Kitties sick skills:</b>  {cat.skill} 
+                    <br/>
+                   <b> Hobby:</b> {cat.hobby} 
+                    <br/>
+                    Adopt this bundle of joy for: ${cat.price}
+                    </Card.Text>
+                    <br/>
+                    <Button variant="primary">Adopt Me!</Button>
+                    <br/>
+                </Card.Body>
+                </Card> 
+  ))}
+</ul>
      <Stack>
           <Outlet/>
         <footer >

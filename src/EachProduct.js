@@ -23,7 +23,7 @@ let [cat, setCat] = useState()
 function detailCard() {
     let {id, name, skill, hobby, price, img} = cat 
     return (
-                <Card className={styles.card} style={{ width: '18rem' }}>
+                <Card className="self-align-end" style={{ width: '18rem' }}>
                 <Card.Img variant="top" src={img} />
                 <Card.Body>
                     <Card.Title><b>{name}</b></Card.Title>

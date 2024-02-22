@@ -29,29 +29,34 @@ function Products(props) {
         
         <>
         <Link className={styles.productLink} to='/create'>Add a new resident</Link>
-         <Stack className="align-self-end w-35">
-            <Outlet/>
+         <Stack>
+            <Outlet  className="self-align-end"/>
           </Stack>
-         <Row>
-        <Col className="wrapper">
-        {cats.map(cat => ( <Card className="align-self-start w-35" key={cat.id} style={{ width: '18rem'}}>
-             <Card.Img variant="top" src={cat.img} />
-             <Card.Body>
+         <Row >
+        
+        {cats.map(cat => ( 
+          <Col  key={cat.id} xs={12} sm={6} md={4} lg={3}>
+          <Card className={styles.card}>
+             <Card.Img className={styles.catImg} variant="top" src={cat.img} />
+             <Card.Body className={styles.body}>
                <Card.Title><b>{cat.name}</b></Card.Title>
                <Card.Text>
                <b>Hobby:</b>  {cat.hobby} 
                  <br/>
                  Price: ${cat.price}
               </Card.Text>
+              <div className={styles.button}> 
                <Link to={`/cats/${cat.id}/more`} variant="primary" className="btn btn-primary mx-3">See more</Link>
-               <br/>
+               
                <Button variant='warning' onClick={handleDelete.bind(this, cat.id)}>Delete {cat.name}</Button> 
-                <br/>
+               
                <Link to={`/cats/${cat.id}/edit`} className="btn btn-primary mx-3">Edit listing</Link>
+               </div>
              </Card.Body>
           </Card>
-          ))};
           </Col>
+          ))}
+          
           </Row>  
             </> 
       ) } 

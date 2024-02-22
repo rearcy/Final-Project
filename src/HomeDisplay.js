@@ -3,6 +3,7 @@ import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card'; 
 import styles from './Home.module.css'
 import { useNavigate, Link } from 'react-router-dom';
+import { Col , Row} from 'react-bootstrap';
 
 function Display({cats}) {
 let navigate = useNavigate()
@@ -22,13 +23,13 @@ let navigate = useNavigate()
 
 return (
     <>
-     <h2>Welcome, come take a look at our cool cats and kittens, up for adoption!</h2>
-
+     <h2 className={styles.welcome}>Welcome, come take a look at our cool cats and kittens, up for adoption!</h2>
+       <Row className="justify-content-center">
 {catsToDisplay.map((cat) => (
-  <div className='col-4'>
+  <Col className={styles.wrapper} xs={12} sm={6} md={4} lg={3}>
     <Card className={styles.card} key={cat.id} style={{ width: '18rem' }}>
-       <Card.Img variant="top" src={cat.img} />
-       <Card.Body>
+       <Card.Img className={styles.catImg} variant="top" src={cat.img} />
+       <Card.Body className={styles.body} >
          <Card.Title>{cat.name}</Card.Title>
          <Card.Text>
           Hobby: {cat.hobby} 
@@ -36,8 +37,9 @@ return (
          <Link to={`/cats/${cat.id}/more`} variant="primary" className="btn btn-primary mx-3">See more</Link>
        </Card.Body>
      </Card> 
-     </div>
+     </Col>
 ))}
+</Row>
      </> 
  ) 
  }

@@ -15,9 +15,11 @@ function App() {
    <BrowserRouter>
     <Routes>
       <Route path='/' element={<Home />} >
+      <Route path=':?q=({value})' element={<Home/>}/>
          <Route index element={<HomeDisplay cats={cats.cats} />}/>
          <Route path='/About' element={<About/>}/>
          <Route path='/cats' element={<Products cats={cats.cats}/>}>
+         <Route index element="Click a kitty to see more!"/>
          <Route path=":catId/edit" element={<NewProduct/>}/>
           <Route path=":catId/more" element={<EachProduct/>}/>
           </Route>

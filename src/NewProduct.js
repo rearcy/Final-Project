@@ -3,6 +3,7 @@ import Form from 'react-bootstrap/Form';
 import React, { useContext, useEffect, useState } from 'react';
 import { ProductContext } from './ProductContext';
 import { useNavigate, useParams } from 'react-router-dom';
+import styles from './Card.module.css';
 
 function NewProduct() {
 let params = useParams()
@@ -50,28 +51,28 @@ let navigate = useNavigate();
 
 
   return (
-    <Form onSubmit={handleSubmit}>
-      <Form.Group className="mb-3">
+    <Form className={styles.form} onSubmit={handleSubmit}>
+      <Form.Group className={styles.group} >
         <Form.Label>Name</Form.Label>
         <Form.Control type="text" name="name" value={name}  onChange={handleChange}/>
       </Form.Group>
 
-      <Form.Group className="mb-3" >
+      <Form.Group className={styles.group} >
         <Form.Label>Hobby</Form.Label>
         <Form.Control type="text" name="hobby" value={hobby}  onChange={handleChange}/>
       </Form.Group>
 
-      <Form.Group className="mb-3" >
+      <Form.Group className={styles.group} >
         <Form.Label>Skill</Form.Label>
         <Form.Control type="text" name="skill" value={skill}  onChange={handleChange}/>
       </Form.Group>
 
-      <Form.Group className="mb-3" >
+      <Form.Group className={styles.group} >
         <Form.Label>Price</Form.Label>
         <Form.Control type="text" name="price" value={price}  onChange={handleChange}/>
       </Form.Group>
 
-      <Form.Group className="mb-3">
+      <Form.Group className={styles.group}>
         <Form.Label>Image URL</Form.Label>
         <Form.Control type="text" name="img" value={img}  onChange={handleChange}/>
       </Form.Group>

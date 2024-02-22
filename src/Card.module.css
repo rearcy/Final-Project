@@ -1,23 +1,51 @@
+.catImg {
+  width:100%;
+  height: 200px;
+  border-radius: 4px;
+  object-fit: cover;
+}
 
 .wrapper {
-    display: flex;
-    justify-content: space-between;
-    align-items: stretch;
-  }
+  justify-items: center;
+}
+
   
   .card {
-    align-items: stretch;
-    text-align: center;
-    padding: 15px;
-    width: 30%;
+    width: 18rem;
+    margin: 10px;
+    
+  }
+
+  .card:hover {
+    transform: scale(1.05);
+    transition: transform 0.3s ease;
   }
 
   .productLink {
     text-align: center;
   }
 
-  .filter {
-    text-align: right;
-    border: solid black;
-    margin: 10px;
+  .body {
+    height: 250px;
+  }
+
+  .group {
+   margin-bottom: 3px;
+  }
+
+  .button {
+    margin: 20px;
+
+  }
+
+  .form {
+    justify-content: center;
+  }
+
+  .display {
+    
+  }
+
+  .displayContainer {
+    justify-content: right;
   }
